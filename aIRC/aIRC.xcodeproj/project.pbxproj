@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		22CA00A31BA7DA0C0096F886 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA00A21BA7DA0C0096F886 /* Server.swift */; settings = {ASSET_TAGS = (); }; };
 		22D050241BA64B0100A5E39B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D050231BA64B0100A5E39B /* AppDelegate.swift */; };
 		22D050261BA64B0100A5E39B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D050251BA64B0100A5E39B /* ViewController.swift */; };
 		22D050291BA64B0100A5E39B /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 22D050271BA64B0100A5E39B /* Main.storyboard */; };
@@ -34,6 +35,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		22CA00A21BA7DA0C0096F886 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		22D050201BA64B0100A5E39B /* aIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D050231BA64B0100A5E39B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		22D050251BA64B0100A5E39B /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 			children = (
 				22D050231BA64B0100A5E39B /* AppDelegate.swift */,
 				22D050251BA64B0100A5E39B /* ViewController.swift */,
+				22CA00A21BA7DA0C0096F886 /* Server.swift */,
 				22D050271BA64B0100A5E39B /* Main.storyboard */,
 				22D0502A1BA64B0100A5E39B /* Assets.xcassets */,
 				22D0502C1BA64B0100A5E39B /* LaunchScreen.storyboard */,
@@ -256,6 +259,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				22D050261BA64B0100A5E39B /* ViewController.swift in Sources */,
+				22CA00A31BA7DA0C0096F886 /* Server.swift in Sources */,
 				22D050241BA64B0100A5E39B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -485,6 +489,7 @@
 				22D0504A1BA64B0200A5E39B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22D0504B1BA64B0200A5E39B /* Build configuration list for PBXNativeTarget "aIRCTests" */ = {
 			isa = XCConfigurationList;
@@ -493,6 +498,7 @@
 				22D0504D1BA64B0200A5E39B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		22D0504E1BA64B0200A5E39B /* Build configuration list for PBXNativeTarget "aIRCUITests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +507,7 @@
 				22D050501BA64B0200A5E39B /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
