@@ -109,3 +109,62 @@ class ViewController: UIViewController, NSStreamDelegate {
 
 }
 
+class ServerListViewController: UITableViewController {
+    var servers:[Server] = [Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
+    var deleteIndexPath:NSIndexPath? = nil
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return servers.count
+    }
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("serverCell", forIndexPath: indexPath) as! ServerCellView
+        cell.serverNameLabel.text = servers[indexPath.row].name
+        return cell
+    }
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deleteIndexPath = indexPath
+            let serverToDelete = servers[indexPath.row]
+            deleteAServer(serverToDelete)
+        }
+    }
+    func deleteAServer(aServer:Server){
+        let alert = UIAlertController(title: "Delete Server", message: "Are you sure you want to remove \(aServer.name)?", preferredStyle: .ActionSheet)
+        let DeleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: executeServerDelete)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: cancelServerDelete)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func executeServerDelete(alertAction: UIAlertAction!) {
+        if let indexPath = deleteIndexPath {
+            let view  = self.view as! UITableView
+            view.beginUpdates()
+            _ = servers.removeAtIndex(indexPath.row)
+            view.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            deleteIndexPath = nil
+            view.endUpdates()
+        }
+        
+    }
+    func cancelServerDelete(alertAction: UIAlertAction!) {
+        deleteIndexPath = nil
+    }
+
+}
+
+class ServerCellView: UITableViewCell {
+    @IBOutlet weak var serverNameLabel: UILabel!
+    
+}
