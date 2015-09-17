@@ -12,10 +12,15 @@ class Server {
     var name:String
     var address:NSURL
     var port:Int
+    var addedChannels:[Channel] = [Channel]()
     
     init(aName:String, anAddress:NSURL, aPort:Int){
         name = aName
         address = anAddress
         port = aPort
+    }
+    
+    func pushChannel(aChannel:Channel){
+        addedChannels.append(aChannel)
     }
 }
