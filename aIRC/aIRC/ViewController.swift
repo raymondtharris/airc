@@ -112,7 +112,7 @@ class ViewController: UIViewController, NSStreamDelegate {
 class ServerListViewController: UITableViewController {
     var servers:[Server] = [Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
     var deleteIndexPath:NSIndexPath? = nil
-    
+    var index = 5
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -160,6 +160,12 @@ class ServerListViewController: UITableViewController {
     }
     func cancelServerDelete(alertAction: UIAlertAction!) {
         deleteIndexPath = nil
+    }
+    @IBAction func addServer(sender: AnyObject) {
+        let newServer = Server(aName: "Server \(servers.count + 1)", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)
+        servers.append(newServer)
+        let view = self.view as! UITableView
+        view.reloadData()
     }
 
 }

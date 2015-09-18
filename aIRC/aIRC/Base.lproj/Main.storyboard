@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Title-->
         <scene sceneID="fAY-Bt-UZs">
             <objects>
                 <tableViewController id="4xO-xG-Wkw" customClass="ServerListViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
@@ -39,7 +39,13 @@
                             <outlet property="delegate" destination="4xO-xG-Wkw" id="aCI-aH-pf4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Root View Controller" id="gmN-ka-ZWy"/>
+                    <navigationItem key="navigationItem" title="Title" id="yiW-Uq-4GR">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="m30-ux-D1V">
+                            <connections>
+                                <action selector="addServer:" destination="4xO-xG-Wkw" id="eXb-Jh-hSm"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-vw-4rC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
