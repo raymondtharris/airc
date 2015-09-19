@@ -40,9 +40,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Title" id="yiW-Uq-4GR">
-                        <barButtonItem key="rightBarButtonItem" title="Add" id="m30-ux-D1V">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="m30-ux-D1V">
                             <connections>
-                                <action selector="addServer:" destination="4xO-xG-Wkw" id="eXb-Jh-hSm"/>
+                                <segue destination="cGL-f0-S5d" kind="show" id="B3l-Ae-I0x"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -50,6 +50,30 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-vw-4rC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1511" y="629"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="rbW-rk-z8a">
+            <objects>
+                <viewController id="cGL-f0-S5d" customClass="ServerConfigViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Kql-yD-Vn7"/>
+                        <viewControllerLayoutGuide type="bottom" id="5jH-Hw-qHf"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Kb6-TJ-XXJ">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="IyU-fm-HBz">
+                        <barButtonItem key="rightBarButtonItem" title="Add" id="Czf-SX-yvM">
+                            <connections>
+                                <action selector="addNewServer:" destination="cGL-f0-S5d" id="R3E-EW-dMp"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hN5-GH-Jfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2223" y="1027.5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyU-kZ-j5l">

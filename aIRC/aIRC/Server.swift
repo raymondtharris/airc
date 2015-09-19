@@ -14,6 +14,12 @@ class Server {
     var port:Int
     var addedChannels:[Channel] = [Channel]()
     
+    init(){
+        name = ""
+        address = NSURL(string: "")!
+        port = 6667
+    }
+    
     init(aName:String, anAddress:NSURL, aPort:Int){
         name = aName
         address = anAddress

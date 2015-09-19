@@ -109,13 +109,17 @@ class ViewController: UIViewController, NSStreamDelegate {
 
 }
 
+let AddingServerNotification:String = "AddingServerNotification"
+
 class ServerListViewController: UITableViewController {
-    var servers:[Server] = [Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
+    var servers:[Server] = [Server]()//[Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
     var deleteIndexPath:NSIndexPath? = nil
     var index = 5
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewServer:", name: AddingServerNotification, object: nil)
+
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -168,9 +172,31 @@ class ServerListViewController: UITableViewController {
         view.reloadData()
     }
 
+    func addingNewServer(notification: NSNotification){
+        let dataDictionary = notification.userInfo!
+        let newServer = dataDictionary["server"] as! Server
+        servers.append(newServer)
+        let tableView = self.view as! UITableView
+        tableView.reloadData()
+    }
 }
 
 class ServerCellView: UITableViewCell {
     @IBOutlet weak var serverNameLabel: UILabel!
     
+}
+
+class ServerConfigViewController: UIViewController {
+    var newServer = Server()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    @IBAction func addNewServer(sender: AnyObject) {
+        newServer.name = "Server "
+        newServer.address = NSURL(string: "http://chat.freenode.net")!
+        let serverDictionary = ["server" : newServer]
+        NSNotificationCenter.defaultCenter().postNotificationName(AddingServerNotification, object: self, userInfo: serverDictionary)
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 }
