@@ -188,13 +188,17 @@ class ServerCellView: UITableViewCell {
 
 class ServerConfigViewController: UIViewController {
     var newServer = Server()
+    
+    @IBOutlet weak var newServerAddressTextField: UITextField!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
     }
     @IBAction func addNewServer(sender: AnyObject) {
         newServer.name = "Server "
-        newServer.address = NSURL(string: "http://chat.freenode.net")!
+        newServer.address = NSURL(string: newServerAddressTextField.text!)!
         let serverDictionary = ["server" : newServer]
         NSNotificationCenter.defaultCenter().postNotificationName(AddingServerNotification, object: self, userInfo: serverDictionary)
         self.navigationController?.popViewControllerAnimated(true)

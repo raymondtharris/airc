@@ -29,4 +29,20 @@ class Server {
     func pushChannel(aChannel:Channel){
         addedChannels.append(aChannel)
     }
+    
+    func isValidServer() ->Bool {
+        //connect to server. If connection is successful get server name and set it as name variable.
+        if connect(){
+            name = "Server C"
+            return true
+        }
+        return false
+    }
+    
+    func connect() -> Bool{
+        return false
+    }
+    func disconnect(){
+        
+    }
 }
