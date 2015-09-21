@@ -110,16 +110,18 @@ class ViewController: UIViewController, NSStreamDelegate {
 }
 
 let AddingServerNotification:String = "AddingServerNotification"
+let AddingUserNotification:String =  "AddingUserNotification"
 
 class ServerListViewController: UITableViewController {
     var servers:[Server] = [Server]()//[Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
     var deleteIndexPath:NSIndexPath? = nil
     var index = 5
+    var userData = User()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewServer:", name: AddingServerNotification, object: nil)
-
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewUser:", name: AddingUserNotification, object: nil)
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -179,6 +181,12 @@ class ServerListViewController: UITableViewController {
         let tableView = self.view as! UITableView
         tableView.reloadData()
     }
+    
+    func addingNewUser(notification: NSNotification){
+        let userDictionary = notification.userInfo!
+        let newUser = User(aName: userDictionary["name"] as! String, aNickname: userDictionary["nickname"] as! String)
+        userData = newUser
+    }
 }
 
 class ServerCellView: UITableViewCell {
@@ -204,3 +212,22 @@ class ServerConfigViewController: UIViewController {
         self.navigationController?.popViewControllerAnimated(true)
     }
 }
+
+class UserConfigViewController: UIViewController {
+    @IBOutlet weak var userNameTextField: UITextField!
+    @IBOutlet weak var userNicknameTextField: UITextField!
+    @IBOutlet weak var finishedButton: UIButton!
+    
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    @IBAction func saveNewUser(sender: AnyObject) {
+        let newName = userNameTextField.text!
+        let newNickname = userNicknameTextField.text!
+        let userDataDictionary = ["name": newName, "nickname": newNickname]
+        NSNotificationCenter.defaultCenter().postNotificationName(AddingUserNotification, object: self, userInfo: userDataDictionary)
+    }
+}
+

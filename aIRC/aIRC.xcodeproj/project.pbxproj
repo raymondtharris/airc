@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		222AEBF01BAA803E0075C64C /* Channel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 222AEBEF1BAA803E0075C64C /* Channel.swift */; settings = {ASSET_TAGS = (); }; };
+		22B0A4361BAFA85F0081C068 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22B0A4351BAFA85F0081C068 /* User.swift */; settings = {ASSET_TAGS = (); }; };
 		22CA00A31BA7DA0C0096F886 /* Server.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22CA00A21BA7DA0C0096F886 /* Server.swift */; settings = {ASSET_TAGS = (); }; };
 		22D050241BA64B0100A5E39B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D050231BA64B0100A5E39B /* AppDelegate.swift */; };
 		22D050261BA64B0100A5E39B /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 22D050251BA64B0100A5E39B /* ViewController.swift */; };
@@ -37,6 +38,7 @@
 
 /* Begin PBXFileReference section */
 		222AEBEF1BAA803E0075C64C /* Channel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Channel.swift; sourceTree = "<group>"; };
+		22B0A4351BAFA85F0081C068 /* User.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		22CA00A21BA7DA0C0096F886 /* Server.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Server.swift; sourceTree = "<group>"; };
 		22D050201BA64B0100A5E39B /* aIRC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = aIRC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		22D050231BA64B0100A5E39B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 				22D050251BA64B0100A5E39B /* ViewController.swift */,
 				22CA00A21BA7DA0C0096F886 /* Server.swift */,
 				222AEBEF1BAA803E0075C64C /* Channel.swift */,
+				22B0A4351BAFA85F0081C068 /* User.swift */,
 				22D050271BA64B0100A5E39B /* Main.storyboard */,
 				22D0502A1BA64B0100A5E39B /* Assets.xcassets */,
 				22D0502C1BA64B0100A5E39B /* LaunchScreen.storyboard */,
@@ -264,6 +267,7 @@
 				22D050261BA64B0100A5E39B /* ViewController.swift in Sources */,
 				222AEBF01BAA803E0075C64C /* Channel.swift in Sources */,
 				22CA00A31BA7DA0C0096F886 /* Server.swift in Sources */,
+				22B0A4361BAFA85F0081C068 /* User.swift in Sources */,
 				22D050241BA64B0100A5E39B /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
