@@ -122,6 +122,7 @@ class ServerListViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewServer:", name: AddingServerNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewUser:", name: AddingUserNotification, object: nil)
+        loadUser()
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -167,6 +168,16 @@ class ServerListViewController: UITableViewController {
     func cancelServerDelete(alertAction: UIAlertAction!) {
         deleteIndexPath = nil
     }
+    func loadUser(){
+        let defaults = NSUserDefaults.standardUserDefaults()
+        if defaults.objectForKey("user_data") != nil {
+            userData = defaults.objectForKey("user_data") as! User
+        } else{
+            //let signInViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserConfigViewController") as! UserConfigViewController
+            //self.navigationController?.presentViewController(signInViewController, animated: true, completion: nil)
+        }
+    }
+    
     @IBAction func addServer(sender: AnyObject) {
         let newServer = Server(aName: "Server \(servers.count + 1)", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)
         servers.append(newServer)
