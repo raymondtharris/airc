@@ -15,7 +15,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="serverCell" id="rDf-SG-Cpy" customClass="ServerCellView" customModule="aIRC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="rDf-SG-Cpy" id="Gts-hb-1WY">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
@@ -47,7 +47,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <segue destination="hth-7V-HY4" kind="presentation" id="do7-wn-kou"/>
+                        <segue destination="hth-7V-HY4" kind="presentation" identifier="presentUserConfig" id="do7-wn-kou"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aGO-vw-4rC" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -57,7 +57,7 @@
         <!--User Config View Controller-->
         <scene sceneID="JAe-xB-RG5">
             <objects>
-                <viewController id="hth-7V-HY4" customClass="UserConfigViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="userConfig" id="hth-7V-HY4" customClass="UserConfigViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="YRj-bU-QJA"/>
                         <viewControllerLayoutGuide type="bottom" id="FTn-iW-an3"/>

@@ -173,6 +173,9 @@ class ServerListViewController: UITableViewController {
         if defaults.objectForKey("user_data") != nil {
             userData = defaults.objectForKey("user_data") as! User
         } else{
+            print("new user.")
+            //let destViewController = self.storyboard?.instantiateViewControllerWithIdentifier("userConfig")
+            self.performSegueWithIdentifier("presentUserConfig", sender: self)
             //let signInViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserConfigViewController") as! UserConfigViewController
             //self.navigationController?.presentViewController(signInViewController, animated: true, completion: nil)
         }
