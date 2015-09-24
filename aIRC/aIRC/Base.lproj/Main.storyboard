@@ -124,11 +124,11 @@
                                 <state key="normal" title="Finished"/>
                                 <state key="disabled" title="Finished"/>
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
-                                    <rect key="frame" x="137" y="407" width="127" height="30"/>
+                                    <rect key="frame" x="137" y="408" width="127" height="30"/>
                                 </variation>
                                 <connections>
                                     <action selector="saveNewUser:" destination="hth-7V-HY4" eventType="touchUpInside" id="1YG-FA-GdX"/>
-                                    <segue destination="4xO-xG-Wkw" kind="show" id="meT-wI-OFt"/>
+                                    <segue destination="QMo-ox-Xuk" kind="showDetail" id="INm-CU-osa"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -164,7 +164,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="BxF-bJ-Fai" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="729" y="1337.25"/>
+            <point key="canvasLocation" x="844.5" y="1338"/>
         </scene>
         <!--Title-->
         <scene sceneID="rbW-rk-z8a">
@@ -231,7 +231,4 @@
             <point key="canvasLocation" x="691" y="629"/>
         </scene>
     </scenes>
-    <inferredMetricsTieBreakers>
-        <segue reference="meT-wI-OFt"/>
-    </inferredMetricsTieBreakers>
 </document>
