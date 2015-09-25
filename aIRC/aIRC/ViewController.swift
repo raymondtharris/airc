@@ -170,9 +170,10 @@ class ServerListViewController: UITableViewController {
     }
     func loadUser(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.objectForKey("user_data_name") != nil {
-            userData.name = defaults.objectForKey("user_data_name") as! String
-            userData.nickName = defaults.objectForKey("user_data_nickName") as! String
+        if defaults.objectForKey("user_data") != nil {
+            userData = defaults.objectForKey("user_data") as! User
+            //userData.name = defaults.objectForKey("user_data_name") as! String
+            //userData.nickName = defaults.objectForKey("user_data_nickName") as! String
         } else{
             print("new user.")
             //let destViewController = self.storyboard?.instantiateViewControllerWithIdentifier("userConfig")
@@ -201,9 +202,11 @@ class ServerListViewController: UITableViewController {
         let userDictionary = notification.userInfo!
         print(userDictionary)
         let newUser = User(aName: userDictionary["name"] as! String, aNickname: userDictionary["nickname"] as! String)
+        print(newUser)
         userData = newUser
-        NSUserDefaults.standardUserDefaults().setValue(userData.name, forKey: "user_data_name")
-        NSUserDefaults.standardUserDefaults().setValue(userData.nickName, forKey: "user_data_nickName")
+        NSUserDefaults.standardUserDefaults().setObject(userData, forKey: "user_data")
+        //NSUserDefaults.standardUserDefaults().setValue(userData.name, forKey: "user_data_name")
+        //NSUserDefaults.standardUserDefaults().setValue(userData.nickName, forKey: "user_data_nickName")
     }
 }
 

@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Channel {
+class Channel: NSObject {
     var name:String
     init(aName:String){
         name = aName

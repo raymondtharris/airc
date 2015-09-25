@@ -11,6 +11,9 @@ import Foundation
 class User: NSObject, NSCoding {
     var name: String
     var nickName: String
+    override var description: String{
+        return "\(name) \(nickName)"
+    }
     override init(){
         name = ""
         nickName = ""
@@ -19,11 +22,11 @@ class User: NSObject, NSCoding {
         name = aName
         nickName = aNickname
     }
-    @objc func encodeWithCoder(aCoder: NSCoder) {
+    func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(self.name, forKey: "name")
         aCoder.encodeObject(self.nickName, forKey: "nickname")
     }
-    @objc required init?(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObjectForKey("name") as! String
         self.nickName = aDecoder.decodeObjectForKey("nickname") as! String
     }
