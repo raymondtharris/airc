@@ -13,4 +13,7 @@ class Channel: NSObject {
     init(aName:String){
         name = aName
     }
+    override init() {
+        name = ""
+    }
 }

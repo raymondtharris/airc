@@ -23,8 +23,8 @@ class User: NSObject, NSCoding {
         nickName = aNickname
     }
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(self.name, forKey: "name")
-        aCoder.encodeObject(self.nickName, forKey: "nickname")
+        aCoder.encodeObject(name, forKey: "name")
+        aCoder.encodeObject(nickName, forKey: "nickname")
     }
     required init?(coder aDecoder: NSCoder) {
         self.name = aDecoder.decodeObjectForKey("name") as! String

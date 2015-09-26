@@ -170,8 +170,9 @@ class ServerListViewController: UITableViewController {
     }
     func loadUser(){
         let defaults = NSUserDefaults.standardUserDefaults()
-        if defaults.objectForKey("user_data") != nil {
-            userData = defaults.objectForKey("user_data") as! User
+        if defaults.objectForKey("userData") != nil {
+            userData = NSKeyedUnarchiver.unarchiveObjectWithData(defaults.objectForKey("userData") as! NSData) as! User
+            print(userData)
             //userData.name = defaults.objectForKey("user_data_name") as! String
             //userData.nickName = defaults.objectForKey("user_data_nickName") as! String
         } else{
@@ -200,11 +201,12 @@ class ServerListViewController: UITableViewController {
     
     func addingNewUser(notification: NSNotification){
         let userDictionary = notification.userInfo!
-        print(userDictionary)
-        let newUser = User(aName: userDictionary["name"] as! String, aNickname: userDictionary["nickname"] as! String)
-        print(newUser)
-        userData = newUser
-        NSUserDefaults.standardUserDefaults().setObject(userData, forKey: "user_data")
+        print(userDictionary["user"])
+        //let newUser = User(aName: userDictionary["name"] as! String, aNickname: userDictionary["nickname"] as! String)
+        
+        userData = userDictionary["user"] as! User
+        let data = NSKeyedArchiver.archivedDataWithRootObject(userData)
+        NSUserDefaults.standardUserDefaults().setObject(data, forKey: "userData")
         //NSUserDefaults.standardUserDefaults().setValue(userData.name, forKey: "user_data_name")
         //NSUserDefaults.standardUserDefaults().setValue(userData.nickName, forKey: "user_data_nickName")
     }
@@ -248,7 +250,7 @@ class UserConfigViewController: UIViewController {
         
         let newName = userNameTextField.text!
         let newNickname = userNicknameTextField.text!
-        let userDataDictionary = ["name": newName, "nickname": newNickname]
+        let userDataDictionary = ["user": User(aName: newName, aNickname: newNickname)]
         NSNotificationCenter.defaultCenter().postNotificationName(AddingUserNotification, object: self, userInfo: userDataDictionary)
         print(userDataDictionary)
         
