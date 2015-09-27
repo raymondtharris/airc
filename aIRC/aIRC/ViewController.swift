@@ -122,6 +122,7 @@ class ServerListViewController: UITableViewController {
         // Do any additional setup after loading the view, typically from a nib.
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewServer:", name: AddingServerNotification, object: nil)
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewUser:", name: AddingUserNotification, object: nil)
+        //NSUserDefaults.standardUserDefaults().removeObjectForKey("userData")
         loadUser()
     }
     
@@ -171,16 +172,13 @@ class ServerListViewController: UITableViewController {
     func loadUser(){
         let defaults = NSUserDefaults.standardUserDefaults()
         if defaults.objectForKey("userData") != nil {
+            //Get User data and set is for the userData variable.
             userData = NSKeyedUnarchiver.unarchiveObjectWithData(defaults.objectForKey("userData") as! NSData) as! User
-            print(userData)
-            //userData.name = defaults.objectForKey("user_data_name") as! String
-            //userData.nickName = defaults.objectForKey("user_data_nickName") as! String
+            //print(userData)
         } else{
-            print("new user.")
-            //let destViewController = self.storyboard?.instantiateViewControllerWithIdentifier("userConfig")
+            //segue to userConfig controller to create a new user.
+            //print("new user.")
             self.performSegueWithIdentifier("presentUserConfig", sender: self)
-            //let signInViewController = UIStoryboard.init(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("UserConfigViewController") as! UserConfigViewController
-            //self.navigationController?.presentViewController(signInViewController, animated: true, completion: nil)
         }
     }
     
@@ -202,13 +200,9 @@ class ServerListViewController: UITableViewController {
     func addingNewUser(notification: NSNotification){
         let userDictionary = notification.userInfo!
         print(userDictionary["user"])
-        //let newUser = User(aName: userDictionary["name"] as! String, aNickname: userDictionary["nickname"] as! String)
-        
         userData = userDictionary["user"] as! User
         let data = NSKeyedArchiver.archivedDataWithRootObject(userData)
         NSUserDefaults.standardUserDefaults().setObject(data, forKey: "userData")
-        //NSUserDefaults.standardUserDefaults().setValue(userData.name, forKey: "user_data_name")
-        //NSUserDefaults.standardUserDefaults().setValue(userData.nickName, forKey: "user_data_nickName")
     }
 }
 
