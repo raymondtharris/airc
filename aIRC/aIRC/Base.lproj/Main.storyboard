@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <scenes>
-        <!--Title-->
+        <!--aIRC-->
         <scene sceneID="fAY-Bt-UZs">
             <objects>
                 <tableViewController id="4xO-xG-Wkw" customClass="ServerListViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
@@ -40,7 +40,7 @@
                             <outlet property="delegate" destination="4xO-xG-Wkw" id="aCI-aH-pf4"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="yiW-Uq-4GR">
+                    <navigationItem key="navigationItem" title="aIRC" id="yiW-Uq-4GR">
                         <barButtonItem key="leftBarButtonItem" title="Settings" id="3DT-97-J8i">
                             <connections>
                                 <segue destination="UWc-bt-liu" kind="show" id="ldn-CP-RWb"/>
@@ -69,6 +69,7 @@
                         <viewControllerLayoutGuide type="bottom" id="4Ae-jj-a1x"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="MIW-oZ-TT2">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -77,19 +78,46 @@
             </objects>
             <point key="canvasLocation" x="2304" y="-44.25"/>
         </scene>
-        <!--Table View Controller-->
+        <!--Title-->
         <scene sceneID="41v-Wg-sqX">
             <objects>
-                <tableViewController id="brZ-t2-0fk" sceneMemberID="viewController">
+                <tableViewController id="brZ-t2-0fk" customClass="ChannelListViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="NoW-Ae-flM">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lYR-RJ-msx">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lYR-RJ-msx" customClass="ChannelCellView" customModule="aIRC" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lYR-RJ-msx" id="Xqu-Db-My9">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlj-iL-cLC">
+                                            <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                                <rect key="frame" x="30" y="11" width="116" height="21"/>
+                                            </variation>
+                                        </label>
+                                    </subviews>
+                                    <variation key="default">
+                                        <mask key="subviews">
+                                            <exclude reference="Xlj-iL-cLC"/>
+                                        </mask>
+                                    </variation>
+                                    <variation key="heightClass=regular-widthClass=compact">
+                                        <mask key="subviews">
+                                            <include reference="Xlj-iL-cLC"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="channelNameLabel" destination="Xlj-iL-cLC" id="muB-Sq-pYQ"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -97,6 +125,9 @@
                             <outlet property="delegate" destination="brZ-t2-0fk" id="rfe-Tx-3xg"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Title" id="xip-Rw-W7R">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="3IZ-wF-8Kl"/>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucW-an-4Cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -214,7 +245,7 @@
             </objects>
             <point key="canvasLocation" x="1182" y="1341"/>
         </scene>
-        <!--Title-->
+        <!--New Server-->
         <scene sceneID="rbW-rk-z8a">
             <objects>
                 <viewController id="cGL-f0-S5d" customClass="ServerConfigViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
@@ -247,7 +278,7 @@
                             </mask>
                         </variation>
                     </view>
-                    <navigationItem key="navigationItem" title="Title" id="IyU-fm-HBz">
+                    <navigationItem key="navigationItem" title="New Server" id="IyU-fm-HBz">
                         <barButtonItem key="rightBarButtonItem" title="Add" id="Czf-SX-yvM">
                             <connections>
                                 <action selector="addNewServer:" destination="cGL-f0-S5d" id="R3E-EW-dMp"/>
@@ -260,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hN5-GH-Jfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2316" y="1341"/>
+            <point key="canvasLocation" x="1864.5" y="1341"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyU-kZ-j5l">

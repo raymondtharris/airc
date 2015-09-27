@@ -251,3 +251,27 @@ class UserConfigViewController: UIViewController {
     }
 }
 
+
+class ChannelListViewController: UITableViewController {
+    var channels = [Channel]()
+    var server = Server()
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+        navigationController?.title = server.name
+    }
+    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return channels.count
+    }
+    
+    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCellWithIdentifier("channelCell", forIndexPath: indexPath) as! ChannelCellView
+        cell.channelNameLabel.text = channels[indexPath.row].name
+        return cell
+    }
+}
+class ChannelCellView: UITableViewCell {
+    @IBOutlet weak var channelNameLabel: UILabel!
+    
+}
+
