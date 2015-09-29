@@ -255,6 +255,7 @@ class UserConfigViewController: UIViewController {
 class ChannelListViewController: UITableViewController {
     var channels = [Channel]()
     var server = Server()
+    var deleteIndexPath:NSIndexPath? = nil
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -269,6 +270,43 @@ class ChannelListViewController: UITableViewController {
         cell.channelNameLabel.text = channels[indexPath.row].name
         return cell
     }
+    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
+    }
+    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
+        if editingStyle == .Delete {
+            deleteIndexPath = indexPath
+            let channelToDelete = channels[indexPath.row]
+            deleteAServer(channelToDelete)
+        }
+    }
+    func deleteAServer(aChannel:Channel){
+        let alert = UIAlertController(title: "Delete Channel", message: "Are you sure you want to remove \(aChannel.name)?", preferredStyle: .ActionSheet)
+        let DeleteAction = UIAlertAction(title: "Delete", style: .Destructive, handler: executeChannelDelete)
+        let CancelAction = UIAlertAction(title: "Cancel", style: .Cancel, handler: cancelChannelDelete)
+        
+        alert.addAction(DeleteAction)
+        alert.addAction(CancelAction)
+        
+        self.presentViewController(alert, animated: true, completion: nil)
+    }
+    
+    func executeChannelDelete(alertAction: UIAlertAction!) {
+        if let indexPath = deleteIndexPath {
+            let view  = self.view as! UITableView
+            view.beginUpdates()
+            _ = channels.removeAtIndex(indexPath.row)
+            view.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Automatic)
+            deleteIndexPath = nil
+            view.endUpdates()
+        }
+        
+    }
+    func cancelChannelDelete(alertAction: UIAlertAction!) {
+        deleteIndexPath = nil
+    }
+    
+    
 }
 class ChannelCellView: UITableViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!

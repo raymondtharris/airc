@@ -87,7 +87,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" id="lYR-RJ-msx" customClass="ChannelCellView" customModule="aIRC" customModuleProvider="target">
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" id="lYR-RJ-msx" customClass="ChannelCellView" customModule="aIRC" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lYR-RJ-msx" id="Xqu-Db-My9">
@@ -97,7 +97,7 @@
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Xlj-iL-cLC">
                                             <rect key="frame" x="-42" y="-21" width="42" height="21"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                             <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                                 <rect key="frame" x="30" y="11" width="116" height="21"/>
@@ -291,7 +291,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hN5-GH-Jfr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1864.5" y="1341"/>
+            <point key="canvasLocation" x="1863" y="1341"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="cyU-kZ-j5l">
