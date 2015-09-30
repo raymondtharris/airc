@@ -204,6 +204,18 @@ class ServerListViewController: UITableViewController {
         let data = NSKeyedArchiver.archivedDataWithRootObject(userData)
         NSUserDefaults.standardUserDefaults().setObject(data, forKey: "userData")
     }
+    
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "showChannelList" {
+            let listView = self.view as! UITableView
+            let indexPath: NSIndexPath = listView.indexPathForSelectedRow!
+            let viewController = segue.destinationViewController as! ChannelListViewController
+            let selectedServer = servers[indexPath.row]
+            viewController.title = selectedServer.name
+            viewController.channels = [Channel]()
+            
+        }
+    }
 }
 
 class ServerCellView: UITableViewCell {
