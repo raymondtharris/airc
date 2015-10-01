@@ -263,6 +263,7 @@ class UserConfigViewController: UIViewController {
     }
 }
 
+let AddingChannelNotification:String = "AddingChannelNotification"
 
 class ChannelListViewController: UITableViewController {
     var channels = [Channel]()
@@ -323,5 +324,21 @@ class ChannelListViewController: UITableViewController {
 class ChannelCellView: UITableViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
     
+}
+
+class ChannelConfigViewController: UIViewController {
+    @IBOutlet weak var channelNameTextField: UITextField!
+    @IBOutlet weak var addChannelButton: UIBarButtonItem!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    @IBAction func addChannel(sender: AnyObject) {
+        let newChannel = Channel(aName: channelNameTextField.text!)
+        print(newChannel.name)
+        let channelDictionary = ["channel": newChannel]
+        NSNotificationCenter.defaultCenter().postNotificationName(AddingChannelNotification, object: self, userInfo: channelDictionary)
+    }
 }
 
