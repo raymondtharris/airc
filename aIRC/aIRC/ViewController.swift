@@ -273,6 +273,7 @@ class ChannelListViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationController?.title = server.name
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "addingNewChannel:", name: AddingChannelNotification, object: nil)
     }
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return channels.count
@@ -319,6 +320,13 @@ class ChannelListViewController: UITableViewController {
         deleteIndexPath = nil
     }
     
+    func addingNewChannel(notificaiton:NSNotification){
+        let channelDictionary = notificaiton.userInfo!
+        let newChannel = channelDictionary["channel"] as! Channel
+        channels.append(newChannel)
+        let tableView = self.view as! UITableView
+        tableView.reloadData()
+    }
     
 }
 class ChannelCellView: UITableViewCell {
@@ -342,3 +350,10 @@ class ChannelConfigViewController: UIViewController {
     }
 }
 
+
+class ChannelChatViewController: UIViewController {
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+}

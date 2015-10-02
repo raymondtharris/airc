@@ -126,6 +126,7 @@
                                 <animations/>
                                 <connections>
                                     <outlet property="channelNameLabel" destination="Xlj-iL-cLC" id="muB-Sq-pYQ"/>
+                                    <segue destination="o3X-sX-io1" kind="show" id="pFq-Is-MIB"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -145,6 +146,25 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ucW-an-4Cm" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2304" y="628.5"/>
+        </scene>
+        <!--Title-->
+        <scene sceneID="X5x-SM-Oe3">
+            <objects>
+                <viewController id="o3X-sX-io1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="fOu-SQ-RVS"/>
+                        <viewControllerLayoutGuide type="bottom" id="QlY-7Z-ilK"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="foN-0y-rC5">
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Title" id="FQi-Wa-r6T"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jbo-qw-roJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3034.5" y="628.5"/>
         </scene>
         <!--User Config View Controller-->
         <scene sceneID="JAe-xB-RG5">
@@ -325,6 +345,7 @@
                         <viewControllerLayoutGuide type="bottom" id="xQc-Kw-sEX"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="1zF-iM-12p">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="channel name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="jnM-Qy-wtv">
