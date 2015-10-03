@@ -328,6 +328,17 @@ class ChannelListViewController: UITableViewController {
         tableView.reloadData()
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "ChannelChatSegue" {
+            let viewController = segue.destinationViewController as! ChannelChatViewController
+            let listView = self.view as! UITableView
+            let indexPath: NSIndexPath = listView.indexPathForSelectedRow!
+            let selectedChannel = channels[indexPath.row]
+            viewController.currentChannel = selectedChannel
+            viewController.navigationController?.title = selectedChannel.name
+        }
+    }
+    
 }
 class ChannelCellView: UITableViewCell {
     @IBOutlet weak var channelNameLabel: UILabel!
@@ -352,6 +363,7 @@ class ChannelConfigViewController: UIViewController {
 
 
 class ChannelChatViewController: UIViewController {
+    var currentChannel = Channel()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
