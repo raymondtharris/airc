@@ -369,3 +369,17 @@ class ChannelChatViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
     }
 }
+
+class SettingsConfigViewController: UIViewController {
+    
+    @IBOutlet weak var settingsSaveButton: UIBarButtonItem!
+    @IBOutlet weak var settingsNameTextField: UITextField!
+    @IBOutlet weak var settingsNicknameTextField: UITextField!
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        // Do any additional setup after loading the view, typically from a nib.
+    }
+    @IBAction func saveSettings(sender: AnyObject) {
+    }
+}

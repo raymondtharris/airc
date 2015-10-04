@@ -64,10 +64,10 @@
             </objects>
             <point key="canvasLocation" x="1511" y="629"/>
         </scene>
-        <!--View Controller-->
+        <!--Settings-->
         <scene sceneID="SsP-d1-Em5">
             <objects>
-                <viewController id="UWc-bt-liu" sceneMemberID="viewController">
+                <viewController id="UWc-bt-liu" customClass="SettingsConfigViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7Pl-5M-VQe"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ae-jj-a1x"/>
@@ -75,9 +75,53 @@
                     <view key="view" contentMode="scaleToFill" id="MIW-oZ-TT2">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DeL-RV-uSQ">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="77" y="102" width="246" height="30"/>
+                                </variation>
+                            </textField>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Nickname" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5vy-hs-7JE">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="77" y="169" width="246" height="30"/>
+                                </variation>
+                            </textField>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="DeL-RV-uSQ"/>
+                                <exclude reference="5vy-hs-7JE"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="DeL-RV-uSQ"/>
+                                <include reference="5vy-hs-7JE"/>
+                            </mask>
+                        </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="Settings" id="hLa-rd-lXH">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="ssd-0P-yd5">
+                            <connections>
+                                <action selector="saveSettings:" destination="UWc-bt-liu" id="MCk-75-XQ6"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="settingsNameTextField" destination="DeL-RV-uSQ" id="iac-ou-pbl"/>
+                        <outlet property="settingsNicknameTextField" destination="5vy-hs-7JE" id="EUp-je-ZIm"/>
+                        <outlet property="settingsSaveButton" destination="ssd-0P-yd5" id="Iao-1v-12t"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCo-l5-US1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
