@@ -10,10 +10,14 @@ import Foundation
 
 class Channel: NSObject {
     var name:String
+    var autoConnect: Bool
+    
     init(aName:String){
         name = aName
+        autoConnect = false
     }
     override init() {
         name = ""
+        autoConnect = false
     }
 }
