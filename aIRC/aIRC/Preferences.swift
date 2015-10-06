@@ -21,12 +21,15 @@ class Preferences: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         autoConnectToServers =  aDecoder.decodeObjectForKey("autoConnectToServers") as! Bool
         cacheMedia = aDecoder.decodeObjectForKey("cacheMediaDuration") as! Bool
+        cacheMediaDuration = aDecoder.decodeIntegerForKey("cacheMediaDuration")
     }
     func encodeWithCoder(aCoder: NSCoder) {
         aCoder.encodeObject(autoConnectToServers, forKey: "autoConnectToServers")
+        aCoder.encodeObject(cacheMedia, forKey: "cacheMedia")
+        aCoder.encodeInteger(cacheMediaDuration, forKey: "cacheMediaDuration")
     }
     
-    func hasCacheMediaDuration() -> Int?{
-        
+    func hasCacheMediaDuration() -> Int{
+        return 1
     }
 }
