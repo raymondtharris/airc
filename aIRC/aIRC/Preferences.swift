@@ -13,20 +13,29 @@ class Preferences: NSObject, NSCoding {
     var cacheMedia: Bool
     var cacheMediaDuration: Int
     
+    var useNameForAll: Bool
+    var useNicknameForAll: Bool
+    
     override init() {
         autoConnectToServers = false
         cacheMedia = false
         cacheMediaDuration = 1
+        useNameForAll = true
+        useNicknameForAll = true
     }
     required init?(coder aDecoder: NSCoder) {
-        autoConnectToServers =  aDecoder.decodeObjectForKey("autoConnectToServers") as! Bool
-        cacheMedia = aDecoder.decodeObjectForKey("cacheMediaDuration") as! Bool
+        autoConnectToServers =  aDecoder.decodeBoolForKey("autoConnectToServers")
+        cacheMedia = aDecoder.decodeBoolForKey("cacheMediaDuration")
         cacheMediaDuration = aDecoder.decodeIntegerForKey("cacheMediaDuration")
+        useNameForAll = aDecoder.decodeBoolForKey("useNameForAll")
+        useNicknameForAll = aDecoder.decodeBoolForKey("useNicknameForAll")
     }
     func encodeWithCoder(aCoder: NSCoder) {
-        aCoder.encodeObject(autoConnectToServers, forKey: "autoConnectToServers")
-        aCoder.encodeObject(cacheMedia, forKey: "cacheMedia")
+        aCoder.encodeBool(autoConnectToServers, forKey: "autoConnectToServers")
+        aCoder.encodeBool(cacheMedia, forKey: "cacheMedia")
         aCoder.encodeInteger(cacheMediaDuration, forKey: "cacheMediaDuration")
+        aCoder.encodeBool(useNameForAll, forKey: "useNameForAll")
+        aCoder.encodeBool(useNicknameForAll, forKey: "useNicknameForAll")
     }
     
     func hasCacheMediaDuration() -> Int{
