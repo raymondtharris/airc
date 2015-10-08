@@ -20,7 +20,7 @@ class ViewController: UIViewController, NSStreamDelegate {
         var readStream: Unmanaged<CFReadStreamRef>?
         var writeStream: Unmanaged<CFWriteStreamRef>?
         
-        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, "http://www.google.com" as CFStringRef, 80, &readStream, &writeStream)
+        CFStreamCreatePairWithSocketToHost(kCFAllocatorDefault, "http://chat.freenode.net" as CFStringRef, 6666, &readStream, &writeStream)
         
         
         
@@ -41,6 +41,7 @@ class ViewController: UIViewController, NSStreamDelegate {
     }
     func stream(aStream: NSStream, handleEvent eventCode: NSStreamEvent) {
         if aStream.isKindOfClass(NSInputStream){
+            
             switch eventCode {
             case NSStreamEvent.None:
                 print("there is none")
