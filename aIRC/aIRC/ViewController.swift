@@ -373,6 +373,9 @@ class ChannelChatViewController: UIViewController {
 
 class SettingsConfigViewController: UIViewController {
     
+    var theUser: User = User()
+    var thePreferences: Preferences = Preferences()
+    
     @IBOutlet weak var settingsSaveButton: UIBarButtonItem!
     @IBOutlet weak var settingsNameTextField: UITextField!
     @IBOutlet weak var settingsNicknameTextField: UITextField!
