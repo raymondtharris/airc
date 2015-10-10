@@ -380,10 +380,21 @@ class SettingsConfigViewController: UIViewController {
     @IBOutlet weak var settingsNameTextField: UITextField!
     @IBOutlet weak var settingsNicknameTextField: UITextField!
     
+    @IBOutlet weak var settingsServerAutoConnectSwitch: UISwitch!
+    @IBOutlet weak var settingsCacheMediaSwitch: UISwitch!
+    @IBOutlet weak var settingsCacheDurationSwitch: UITextField!
+    @IBOutlet weak var settingsCacheDurationLabel: UILabel!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        toggleCacheDuration(self)
     }
+    @IBAction func toggleCacheDuration(sender: AnyObject) {
+        //if true show cache duration else hide it.
+    }
+    
     @IBAction func saveSettings(sender: AnyObject) {
     }
 }

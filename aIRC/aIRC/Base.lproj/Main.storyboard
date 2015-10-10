@@ -90,7 +90,7 @@
                         <viewControllerLayoutGuide type="top" id="7Pl-5M-VQe"/>
                         <viewControllerLayoutGuide type="bottom" id="4Ae-jj-a1x"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="MIW-oZ-TT2">
+                    <view key="view" contentMode="scaleToFill" id="MIW-oZ-TT2" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
@@ -125,6 +125,9 @@
                                 <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
                                     <rect key="frame" x="274" y="302" width="51" height="31"/>
                                 </variation>
+                                <connections>
+                                    <action selector="toggleCacheDuration:" destination="UWc-bt-liu" eventType="valueChanged" id="liz-bQ-k9a"/>
+                                </connections>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cache Media" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CoQ-ks-9Zu">
                                 <rect key="frame" x="-42" y="-21" width="42" height="21"/>
@@ -146,6 +149,25 @@
                                     <rect key="frame" x="77" y="243" width="155" height="21"/>
                                 </variation>
                             </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cache Duration" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="khq-FV-BiV">
+                                <rect key="frame" x="-42" y="-21" width="42" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="77" y="369" width="131" height="21"/>
+                                </variation>
+                            </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="1" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SXS-77-IWZ">
+                                <rect key="frame" x="-25" y="-30" width="97" height="30"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="274" y="365" width="49" height="30"/>
+                                </variation>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -157,6 +179,8 @@
                                 <exclude reference="j0y-aK-eHh"/>
                                 <exclude reference="CoQ-ks-9Zu"/>
                                 <exclude reference="OcZ-Q5-PDT"/>
+                                <exclude reference="khq-FV-BiV"/>
+                                <exclude reference="SXS-77-IWZ"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -167,6 +191,8 @@
                                 <include reference="j0y-aK-eHh"/>
                                 <include reference="CoQ-ks-9Zu"/>
                                 <include reference="OcZ-Q5-PDT"/>
+                                <include reference="khq-FV-BiV"/>
+                                <include reference="SXS-77-IWZ"/>
                             </mask>
                         </variation>
                     </view>
@@ -178,9 +204,13 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="settingsCacheDurationLabel" destination="khq-FV-BiV" id="6jM-0Z-JN9"/>
+                        <outlet property="settingsCacheDurationSwitch" destination="SXS-77-IWZ" id="5ae-5E-bfO"/>
+                        <outlet property="settingsCacheMediaSwitch" destination="j0y-aK-eHh" id="Xyw-qC-fyU"/>
                         <outlet property="settingsNameTextField" destination="DeL-RV-uSQ" id="iac-ou-pbl"/>
                         <outlet property="settingsNicknameTextField" destination="5vy-hs-7JE" id="EUp-je-ZIm"/>
                         <outlet property="settingsSaveButton" destination="ssd-0P-yd5" id="Iao-1v-12t"/>
+                        <outlet property="settingsServerAutoConnectSwitch" destination="MfK-jz-GVd" id="fpD-XE-f4c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCo-l5-US1" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -198,7 +228,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="channelCell" id="lYR-RJ-msx" customClass="ChannelCellView" customModule="aIRC" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="28" width="600" height="44"/>
+                                <rect key="frame" x="0.0" y="92" width="600" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="lYR-RJ-msx" id="Xqu-Db-My9">
                                     <rect key="frame" x="0.0" y="0.0" width="600" height="43"/>
