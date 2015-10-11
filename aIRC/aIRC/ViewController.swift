@@ -393,6 +393,13 @@ class SettingsConfigViewController: UIViewController {
     }
     @IBAction func toggleCacheDuration(sender: AnyObject) {
         //if true show cache duration else hide it.
+        if thePreferences.cacheMedia {
+            settingsCacheDurationSwitch.hidden = false
+            settingsCacheDurationLabel.hidden = false
+        } else {
+            settingsCacheDurationLabel.hidden = true
+            settingsCacheDurationSwitch.hidden = true
+        }
     }
     
     @IBAction func saveSettings(sender: AnyObject) {
