@@ -371,7 +371,7 @@ class ChannelChatViewController: UIViewController {
     }
 }
 
-class SettingsConfigViewController: UIViewController {
+class SettingsConfigViewController: UIViewController, UITextFieldDelegate {
     
     var theUser: User = User()
     var thePreferences: Preferences = Preferences()
@@ -389,6 +389,7 @@ class SettingsConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        settingsSaveButton.enabled  = false
         toggleCacheDuration(self)
     }
     @IBAction func toggleCacheDuration(sender: AnyObject) {
@@ -401,6 +402,26 @@ class SettingsConfigViewController: UIViewController {
             settingsCacheDurationSwitch.hidden = true
         }
     }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if textField.placeholder == "Nickname" {
+            //Check for Nickname
+            if textField.text! != theUser.nickName {
+                settingsSaveButton.enabled = true
+            }
+            
+        } else if textField.placeholder == "Name" {
+            //Check for Name
+            if textField.text! != theUser.name {
+                settingsSaveButton.enabled = true
+            }
+            
+        } else if textField.placeholder == "1" {
+            //Check for CacheMediaDuration
+        } else {
+            settingsSaveButton.enabled = false
+        }
+    }
+    
     
     @IBAction func saveSettings(sender: AnyObject) {
     }
