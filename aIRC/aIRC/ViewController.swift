@@ -112,6 +112,7 @@ class ViewController: UIViewController, NSStreamDelegate {
 
 let AddingServerNotification:String = "AddingServerNotification"
 let AddingUserNotification:String =  "AddingUserNotification"
+let UpdateUserAndPrefsNotification:String = "UpdateUserAndPrefsNotification"
 
 class ServerListViewController: UITableViewController {
     var servers:[Server] = [Server]()//[Server(aName: "Server 1", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 2", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 3", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667), Server(aName: "Server 4", anAddress: NSURL(string: "http://chat.freenode.net")!, aPort: 6667)]
@@ -417,6 +418,9 @@ class SettingsConfigViewController: UIViewController, UITextFieldDelegate {
             
         } else if textField.placeholder == "1" {
             //Check for CacheMediaDuration
+            if textField.text == thePreferences.cacheMediaDuration.description {
+                settingsSaveButton.enabled = true
+            }
         } else {
             settingsSaveButton.enabled = false
         }
@@ -424,5 +428,7 @@ class SettingsConfigViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func saveSettings(sender: AnyObject) {
+        let dataDictionary = ["user": theUser, "prefs": thePreferences]
+        NSNotificationCenter.defaultCenter().postNotificationName(UpdateUserAndPrefsNotification, object: self, userInfo: dataDictionary)
     }
 }
