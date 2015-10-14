@@ -464,6 +464,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addNewServerButton" destination="Czf-SX-yvM" id="bf7-f7-qWw"/>
                         <outlet property="newServerAddressTextField" destination="tRz-FI-Bvf" id="2cp-q1-oCf"/>
                     </connections>
                 </viewController>

@@ -225,16 +225,26 @@ class ServerCellView: UITableViewCell {
     
 }
 
-class ServerConfigViewController: UIViewController {
+class ServerConfigViewController: UIViewController, UITextFieldDelegate {
     var newServer = Server()
     
     @IBOutlet weak var newServerAddressTextField: UITextField!
+    @IBOutlet weak var addNewServerButton: UIBarButtonItem!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        addNewServerButton.enabled = false
     }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if newServerAddressTextField.text?.characters.count > 10 {
+            addNewServerButton.enabled = true
+        } else {
+            addNewServerButton.enabled = false
+        }
+    }
+    
     @IBAction func addNewServer(sender: AnyObject) {
         newServer.name = "Server "
         newServer.address = NSURL(string: newServerAddressTextField.text!)!
@@ -244,7 +254,7 @@ class ServerConfigViewController: UIViewController {
     }
 }
 
-class UserConfigViewController: UIViewController {
+class UserConfigViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userNameTextField: UITextField!
     @IBOutlet weak var userNicknameTextField: UITextField!
     @IBOutlet weak var finishedButton: UIButton!
@@ -253,7 +263,16 @@ class UserConfigViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        finishedButton.enabled = false
     }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if userNameTextField.text != nil  && userNicknameTextField.text != nil  {
+            finishedButton.enabled = true
+        } else {
+            finishedButton.enabled = false
+        }
+    }
+    
     @IBAction func saveNewUser(sender: AnyObject) {
         
         let newName = userNameTextField.text!
