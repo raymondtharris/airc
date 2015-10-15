@@ -366,14 +366,23 @@ class ChannelCellView: UITableViewCell {
     
 }
 
-class ChannelConfigViewController: UIViewController {
+class ChannelConfigViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var channelNameTextField: UITextField!
     @IBOutlet weak var addChannelButton: UIBarButtonItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        addChannelButton.enabled = false
     }
+    func textFieldDidBeginEditing(textField: UITextField) {
+        if channelNameTextField.text?.characters.count >= 3 {
+            addChannelButton.enabled = true
+        } else {
+            addChannelButton.enabled = false
+        }
+    }
+    
     @IBAction func addChannel(sender: AnyObject) {
         let newChannel = Channel(aName: channelNameTextField.text!)
         print(newChannel.name)
@@ -385,6 +394,10 @@ class ChannelConfigViewController: UIViewController {
 
 class ChannelChatViewController: UIViewController {
     var currentChannel = Channel()
+    
+    @IBOutlet weak var channelTextView: UIScrollView!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.

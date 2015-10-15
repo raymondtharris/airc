@@ -284,18 +284,40 @@
         <!--Title-->
         <scene sceneID="X5x-SM-Oe3">
             <objects>
-                <viewController id="o3X-sX-io1" sceneMemberID="viewController">
+                <viewController id="o3X-sX-io1" customClass="ChannelChatViewController" customModule="aIRC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="fOu-SQ-RVS"/>
                         <viewControllerLayoutGuide type="bottom" id="QlY-7Z-ilK"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="foN-0y-rC5" customClass="UIScrollView">
+                    <view key="view" contentMode="scaleToFill" id="foN-0y-rC5">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BZD-l2-P1R">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <variation key="heightClass=regular-widthClass=compact" fixedFrame="YES">
+                                    <rect key="frame" x="0.0" y="64" width="400" height="571"/>
+                                </variation>
+                            </scrollView>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="BZD-l2-P1R"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="BZD-l2-P1R"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" title="Title" id="FQi-Wa-r6T"/>
+                    <connections>
+                        <outlet property="channelTextView" destination="BZD-l2-P1R" id="fwc-f6-jD4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jbo-qw-roJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -309,7 +331,7 @@
                         <viewControllerLayoutGuide type="top" id="YRj-bU-QJA"/>
                         <viewControllerLayoutGuide type="bottom" id="FTn-iW-an3"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="j8L-3g-FBn">
+                    <view key="view" contentMode="scaleToFill" id="j8L-3g-FBn" customClass="UIScrollView">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
